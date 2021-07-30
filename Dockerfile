@@ -1,7 +1,8 @@
 FROM node:14.15.4
-WORKDIR /node-docker
+WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . ./
-EXPOSE 5000
-CMD ["node", "index.js"]
+ENV PORT 5000
+EXPOSE $PORT
+CMD ["npm", "run", "dev"]
