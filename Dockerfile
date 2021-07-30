@@ -1,8 +1,15 @@
 FROM node:14.15.4
 WORKDIR /app
 COPY package.json .
-RUN npm install
+RUN npm install 
+
+ARG NODE_ENV
+RUN if [ "$NODE_ENV" = "development" ]; \
+  then npm install; \
+  else npm install --only=production; \
+  fi
+
 COPY . ./
 ENV PORT 5000
 EXPOSE $PORT
-CMD ["npm", "run", "dev"]
+CMD ["node", "index.js"]
