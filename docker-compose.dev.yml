@@ -10,4 +10,11 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+      - MONGO_USER=mcmzrc
+      - MONGO_PASSWORD=zrenjaninac
     command: npm run dev
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mcmzrc
+      - MONGO_INITDB_ROOT_PASSWORD=zrenjaninac

@@ -1,7 +1,6 @@
-FROM node:14.15.4
+FROM node:15
 WORKDIR /app
 COPY package.json .
-RUN npm install 
 
 ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; \
