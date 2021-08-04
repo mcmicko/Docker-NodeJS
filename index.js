@@ -8,6 +8,7 @@ const {
 } = require("./config/config");
 
 const postRouter = require("./routes/postRoutes");
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
@@ -35,7 +36,8 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello World</h1>");
 });
 
-app.use("/posts", postRouter);
+app.use("/api/posts", postRouter);
+app.use("/api/users", userRouter);
 
 const port = process.env.PORT || 5000;
 
